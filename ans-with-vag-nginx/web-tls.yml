@@ -1,0 +1,13 @@
+- name: configuration webserver with nginx and tls
+  hosts: webservers
+  sudo: True
+  vars:
+  	key_file: /etc/nginx/ssl/nginx.key
+  	cert_file: /etc/nginx/ssl/nginx.crt
+  	conf_file: /etc/nginx/site-available/default
+  	server_name: localhost
+  tasks:
+    - name: install nginx
+      apt: name=nginx update update_cache=yes cache_valid_time=3600
+
+    - name:
